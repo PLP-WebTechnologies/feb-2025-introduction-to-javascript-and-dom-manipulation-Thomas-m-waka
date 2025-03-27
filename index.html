@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript & DOM Manipulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 id="title">Welcome to My Page</h1>
+        <button onclick="changeText()">Change Text</button>
+    </header>
+
+    <section class="content">
+        <p id="paragraph">Click the button to change my color!</p>
+        <button onclick="changeColor()">Change Color</button>
+    </section>
+
+    <section>
+        <button onclick="addElement()">Add Element</button>
+        <button onclick="removeElement()">Remove Element</button>
+        <div id="container"></div>
+    </section>
+
+    <script>
+        // Change text content dynamically
+        function changeText() {
+            document.getElementById("title").innerText = "JavaScript DOM Manipulated!";
+        }
+
+        // Modify CSS styles via JavaScript
+        function changeColor() {
+            document.getElementById("paragraph").style.color = "red";
+        }
+
+        // Add an element dynamically
+        function addElement() {
+            let newElement = document.createElement("p");
+            newElement.innerText = "New dynamically added paragraph!";
+            newElement.style.fontWeight = "bold";
+            document.getElementById("container").appendChild(newElement);
+        }
+
+        // Remove last added element
+        function removeElement() {
+            let container = document.getElementById("container");
+            if (container.lastChild) {
+                container.removeChild(container.lastChild);
+            }
+        }
+    </script>
+
+</body>
+</html>
